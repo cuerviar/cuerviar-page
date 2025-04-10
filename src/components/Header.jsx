@@ -3,7 +3,7 @@ import IconButton from './IconButton'
 import { useContext, useState } from "react"
 import { ThemeContext } from "../ThemeContext"
 
-export default function App() {
+export default function App({ setCurrentPage }) {
     const { toggleTheme, theme } = useContext(ThemeContext);
     const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -83,9 +83,9 @@ export default function App() {
             </header>
             <nav style={navStyle} onClick={closeNav}>
                 <ul style={ulStyle}>
-                    <li style={liStyle}><a style={routeStyle} href='/' onClick={(e) => { e.preventDefault() }}>Inicio</a></li>
-                    <li style={liStyle}><a style={routeStyle} href='/Debian' onClick={(e) => { e.preventDefault() }}>Debian</a></li>
-                    <li style={liStyle}><a style={routeStyle} href='/Windows10' onClick={(e) => { e.preventDefault() }}>Windows 10</a></li>
+                    <li style={liStyle}><a style={routeStyle} href='/' onClick={(e) => { e.preventDefault(); setCurrentPage('Home') }}>Inicio</a></li>
+                    <li style={liStyle}><a style={routeStyle} href='/Debian' onClick={(e) => { e.preventDefault(); setCurrentPage('Debian') }}>Debian</a></li>
+                    <li style={liStyle}><a style={routeStyle} href='/Windows10' onClick={(e) => { e.preventDefault(); setCurrentPage('Windows10') }}>Windows 10</a></li>
                 </ul>
             </nav>
         </>
