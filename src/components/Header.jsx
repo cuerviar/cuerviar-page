@@ -49,6 +49,7 @@ export default function App({ setCurrentPage }) {
         height: '100vh',
         backgroundColor: `${theme == 'light' ? '#f8fafc' : '#09090b'}`,
         transition: 'all .3s ease-in-out',
+        zIndex: '99'
     }
 
     const ulStyle = {
