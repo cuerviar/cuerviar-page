@@ -6,6 +6,16 @@ export default function App({ text }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isHoveredCopy, setIsHoveredCopy] = useState(false);
 
+
+    const copyToClipboard = async () => {
+        const plainText = text.replace(/<br\s*\/?>/gi, "\n");
+        try {
+            await navigator.clipboard.writeText(plainText);
+        } catch (err) {
+            console.error("Error al copiar: ", err);
+        }
+    };
+
     const styleContainer = {
         position: 'relative'
     }
@@ -38,8 +48,6 @@ export default function App({ text }) {
         backgroundColor: `${theme == 'light' ? '#0f1323' : '#242427'}`,
     }
 
-    //'#282b3a'
-    //'#3a3a3d'
     const styleCopyIcon = {
         width: '1.7rem',
         height: '1.7rem',
@@ -53,14 +61,28 @@ export default function App({ text }) {
     }
 
     const styleText = {
-
+        transition: 'all .3s ease-in-out',
+        display: `${isHoveredCopy ? 'flex' : 'none'}`,
+        color: '#FFFFFF',
+        fontSize: '12px',
+        width: '4rem',
+        height: '1.5rem',
+        position: 'absolute',
+        justifyContent: 'center',
+        alignItems: 'center',
+        right: '7px',
+        top: '44px',
+        borderRadius: '5px',
+        border: 'transparent',
+        backgroundColor: `${theme == 'light' ? '#334155' : '#3f3f46'}`,
+        userSelect: 'none',
     }
 
     return <div style={styleContainer}>
         <code style={styleCode} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
             {text}
-            <div style={styleCopy} onMouseEnter={() => setIsHoveredCopy(true)} onMouseLeave={() => setIsHoveredCopy(false)}><div style={styleCopyIcon}></div></div>
+            <div style={styleCopy} onMouseEnter={() => setIsHoveredCopy(true)} onMouseLeave={() => setIsHoveredCopy(false)} onClick={() => { setIsHoveredCopy(false); copyToClipboard(); }}><div style={styleCopyIcon}></div></div>
+            <div style={styleText}>Copiar</div>
         </code>
-        <div style={styleText}>Copiar</div>
     </div>
 }
