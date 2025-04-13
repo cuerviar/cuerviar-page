@@ -5,5 +5,5 @@ export default {
         host: true
     },
     plugins: [react()],
-    base: 'https://cuerviar.github.io/cuerviar-dev/'
+    base: 'https://github.com/cuerviar/cuerviar-dev/'
 }
