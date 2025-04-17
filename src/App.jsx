@@ -1,6 +1,7 @@
 import Header from './components/Header'
 import Home from './pages/Home'
 import Debian from './pages/Debian'
+import FedyOS from './pages/fedyos'
 import Windows10 from './pages/Windows 10'
 
 import { ThemeProvider } from './ThemeContext';
@@ -33,6 +34,8 @@ export default function App() {
                 return <Debian />;
             case "Windows10":
                 return <Windows10 />;
+            case "FedyOS":
+                return <FedyOS />;
             default:
                 return <Home />;
         }

@@ -87,6 +87,7 @@ export default function App({ setCurrentPage }) {
                     <li style={liStyle}><a style={routeStyle} href='/' onClick={(e) => { e.preventDefault(); setCurrentPage('Home') }}>Inicio</a></li>
                     <li style={liStyle}><a style={routeStyle} href='/Debian' onClick={(e) => { e.preventDefault(); setCurrentPage('Debian') }}>Debian</a></li>
                     <li style={liStyle}><a style={routeStyle} href='/Windows10' onClick={(e) => { e.preventDefault(); setCurrentPage('Windows10') }}>Windows 10</a></li>
+                    <li style={liStyle}><a style={routeStyle} href='/fedyos' onClick={(e) => { e.preventDefault(); setCurrentPage('FedyOS') }}>FedyOS</a></li>
                 </ul>
             </nav>
         </>
