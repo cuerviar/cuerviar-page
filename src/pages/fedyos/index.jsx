@@ -9,7 +9,7 @@ export default function App() {
         <h1 style={{ textAlign: 'center' }}>Fedy OS</h1>
         <h2>Descarga</h2>
         <h2>USB Booteable</h2>
-        <Command text={'cd ~/Downloads\n\nxz -d FydeOS*.xz\n\nlsblk\n\nsudo dd if=~/Downloads/FydeOS_for_PC_v19.0-io-stable.img of=/dev/sdb bs=4M status=progress\n\nsync'} />
+        <Command text={'cd ~/Downloads\n\nxz -d FydeOS*.xz\n\nlsblk\n\nsudo dd if=~/Downloads/FydeOS_for_PC_v19.0-io-stable.img of=/dev/sdb bs=4M status=progress conv=fsync\n\nsync'} />
         <h2>Instalacion</h2>
         <h2>Programas</h2>
     </>
